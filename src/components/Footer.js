@@ -24,10 +24,10 @@ export default function Footer() {
               Just<span className="text-[#FDE2F3] font-[cursive]">Married</span>
             </p>
             <div className="flex gap-6 pb-5">
-              <FaInstagram className="text-2xl cursor-pointer hover:text-[#DD2A7B]" />
-              <FaTwitter className="text-2xl cursor-pointer hover:text-[#C85C8E]" />
-              <FaLinkedin className="text-2xl cursor-pointer hover:text-[#C85C8E]" />
-              <FaYoutube className="text-2xl cursor-pointer hover:text-red-600" />
+              <FaInstagram className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
+              <FaTwitter className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
+              <FaLinkedin className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
+              <FaYoutube className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
             </div>
           </ul>
         </div>
