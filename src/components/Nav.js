@@ -4,15 +4,15 @@ import Link from "next/link";
 export default function Nav() {
   return (
     <nav className="p-2 bg-[#2A2F4F] shadow md:flex md:items-center md:justify-between">
-      <div className=" px-4 flex flex-wrap justify-between items-center text-[#917FB3] hover:text-[#FDE2F3] ">
+      <div className=" px-4 flex flex-wrap justify-between items-center text-[#E5BEEC] hover:text-[#fff] ">
         <Link href="/">
           {" "}
           <span className="text-2xl font-[cursive] cursor-pointer">
-            <img
+            {/* <img
               className="h-10 inline"
-              src="./img/logo/logo.png"
+              // src="./img/logo/logo.png"
               alt="logo"
-            ></img>
+            ></img> */}
             Just Married
           </span>
         </Link>
@@ -51,7 +51,7 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
             <a
               herf="#"
-              className="text-xl text-[#917FB3] font-[sans] hover:text-[#E5BEEC] duration-500"
+              className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Home
             </a>
@@ -59,7 +59,7 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
             <a
               herf="#"
-              className="text-xl text-[#917FB3] font-[sans] hover:text-[#E5BEEC] duration-500"
+              className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Gallery
             </a>
@@ -67,7 +67,7 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
             <a
               herf="#"
-              className="text-xl text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500"
+              className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Service
             </a>
@@ -75,7 +75,7 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
             <a
               herf="#"
-              className="text-xl  text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500"
+              className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               About
             </a>
@@ -83,14 +83,14 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
             <a
               herf="#"
-              className="text-xl  text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500"
+              className="text-xl  text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Contact
             </a>
           </li>
         </ul>
         <Link href="/signin">
-          <button className="w-[130px] h-[50px] bg-transparent border-[2px] border-solid border-[#917FB3] outline-none rounded-[8px] cursor-pointer text-[1.1em] text-[#917FB3] font[500] ml-[40px] ease-[0.5s] hover:bg-[#2A2F4F] hover:text-[#E5BEEC] hover:border-[#E5BEEC]">
+          <button className="w-[130px] h-[50px] bg-transparent border-[2px] border-solid border-[#E5BEEC] outline-none rounded-[8px] cursor-pointer text-[1.1em] text-[#E5BEEC]  font[500] ml-[40px] ease-[0.5s] hover:bg-[#2A2F4F] hover:text-[#fff] hover:border-[#fff]">
             Login
           </button>
         </Link>
