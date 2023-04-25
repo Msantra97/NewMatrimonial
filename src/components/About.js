@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
   return (
 
-    <div className=" relative w-full justify-center bg-cover bg-no-repeat mt-2 mb-2 px-4 py-4 grid md:grid-cols-2 gap-4">
+    <div className=" relative w-full justify-center bg-cover bg-no-repeat mt-2 mb-2 px-4 py-4 grid md:grid-cols-2 gap-4" id='about'>
   
       <div className=' mt-22 mb-22'>
         <h2 className='text-4xl mt-16 ml-16 font-[cursive]'>Somthings About Us </h2>

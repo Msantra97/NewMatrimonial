@@ -8,7 +8,7 @@ export default function Gallery() {
 <h2 className='text-4xl mt-6 mb-6 font-[cursive]'>Our Gallery</h2>
 </div>
 
-        <div className="grid grid-cols-2 mt-2 mb-2 px-4 py-4 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 mt-2 mb-2 px-4 py-4 md:grid-cols-4 gap-4" id='gallery'>
             <div className="grid gap-4">
                 <div>
                     <img className="h-auto max-w-full rounded-lg" src="./img/gallery/pic1.jpg" alt="" />

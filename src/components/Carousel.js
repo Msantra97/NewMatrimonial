@@ -12,7 +12,7 @@ export default function CarouselComponent() {
   };
   return (
     <div className="">
-        <AliceCarousel autoPlay autoPlayInterval="3000" disableButtonsControls   >
+        <AliceCarousel autoPlay autoPlayInterval="2500" disableButtonsControls   >
           <div>
             <img className="sliderimg" src="./img/carousel/slide1.jpg"/>
           </div>
@@ -25,8 +25,12 @@ export default function CarouselComponent() {
           <div>
             <img  className="sliderimg" src="./img/carousel/slide4.jpg"/>
           </div>
+          <div>
+            <img  className="sliderimg" src="./img/carousel/slide5.jpg"/>
+          </div>
           </AliceCarousel>
     </div>
 
-  );
+    
+  )
 }
