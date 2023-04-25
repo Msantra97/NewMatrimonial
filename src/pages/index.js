@@ -10,13 +10,13 @@ import React from 'react'
 export default function Home() {
   return (
     <div>
-      {/* <Nav/>
+      <Nav/>
       <Gallery/>
       <About/>
-      <Story/>
+      {/* <Story/> */}
       <Service/>
-      <Footer/> */}
-      <Profile/>
+      <Footer/>
+      {/* <Profile/> */}
     </div>
   )
 }

@@ -1,46 +1,56 @@
 import React, { useState } from 'react'
+import DatePicker from "react-datepicker";
 import { FaUserCircle } from "react-icons/fa";
+import "react-datepicker/dist/react-datepicker.css";
+
+
 
 export default function Profile() {
 
     const formArray = [1, 2, 3, 4, 5, 6];
     const [formNo, setformNo] = useState(formArray[0])
     const [state, setState] = useState({
-        picture:'',
-        profilefor:'',
-        FirstName:'',
-        gender:'',
-        Address:'',
-        Religion:'',
-        Community:'',
-        live:'',
-        Status:'',
-        Qualification:'',
-        Diet:'',
-        Height:'',
-        Works:'',
-        Income:'',
-        message:''
+        picture: '',
+        profilefor: '',
+        FirstName: '',
+        gender: '',
+        Address: '',
+        Religion: '',
+        Community: '',
+        live: '',
+        Status: '',
+        Qualification: '',
+        Diet: '',
+        Height: '',
+        Works: '',
+        Income: '',
+        message: ''
     })
+ 
     const Next = () => {
         setformNo(formNo + 1)
     }
     const Perv = () => {
         setformNo(formNo - 1)
     }
+    const [selectedDate, setSelectedDate] = useState(null)
     return (
         <div className='w-screen h-screen bg-slate-300 flex justify-center items-center'>
+            
             <div className="card w-[370px]  rounded-lg  shadow-md bg-white p-5">
-
-                <div className='flex justify-center items-center'>
+                    <div className='flex flex-col mt-[20px] ml-[84px] mb-8'>
+                    <h1 className='inline-block font-[500] text-[30px]'>User Profile
+                    </h1>
+                    </div>
+                <div className='flex  justify-center items-center'>
                     {
-                        formArray.map((v,i)=><><div className={`w-[35px] my-3 text-white rounded-full ${ formNo-1 === i||formNo-1 === i+1 || formNo -1 === i+2 ||  formNo -1 === i+3 ||formNo -1 === i+4 || formNo===formArray.length ? 'bg-black':'bg-slate-400'} h-[35px] flex justify-center items-center`}>
+                        formArray.map((v, i) => <><div className={`w-[35px] my-3 text-white rounded-full ${formNo - 1 === i || formNo - 1 === i + 1 || formNo - 1 === i + 2 || formNo - 1 === i + 3 || formNo - 1 === i + 4 || formNo === formArray.length ? 'bg-black' : 'bg-slate-400'} h-[35px] flex justify-center items-center`}>
                             {v}
-                            </div>
+                        </div>
                             {
-                                i !== formArray.length - 1 && <div className={`w-[85px] h-[2px] ${formNo === i + 2||formNo === i + 3||formNo === i + 4||formNo === i + 5 || formNo === formArray.length ? 'bg-black':'bg-slate-400'}`}></div>
+                                i !== formArray.length - 1 && <div className={`w-[85px] h-[2px] ${formNo === i + 2 || formNo === i + 3 || formNo === i + 4 || formNo === i + 5 || formNo === formArray.length ? 'bg-black' : 'bg-slate-400'}`}></div>
                             }
-                            </>)
+                        </>)
                     }
 
                 </div>
@@ -70,12 +80,14 @@ export default function Profile() {
                             </select>
                         </div>
 
-                                <div className='flex flex-col ml-[10px] mt-[20px]'>
+                        <div className='flex flex-col ml-[10px] mt-[20px]'>
+                        <label htmlFor='Birth' className="block ml-2 mb-2 text-sm font-medium text-black">Birth date</label>
+                        <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} 
+                        dateFormat='dd/MM/yyyy' isClearable showYearDropdown scrollableMonthYearDropdown id='Birth' name='Birth' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'/>
 
+                        </div>
 
-                                </div>
-
-                           <div className='flex justify-center items-center mt-[10px] ml-2 mr-2'>
+                        <div className='flex  justify-center items-center mt-[10px] ml-2 mr-2'>
                             <button onClick={Next} type="Next" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white  hover:bg-white hover:text-black">Next</button>
                         </div>
                     </div>
@@ -98,11 +110,11 @@ export default function Profile() {
 
                         <div className="flex mt-[10px]">
                             <div className="flex items-center ml-2  mr-4">
-                                <input id="Male"  type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
+                                <input id="Male" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
                                 <label htmlFor="Male" className="ml-2 text-sm font-medium text-black">Male</label>
                             </div>
                             <div className="flex items-center ml-2  mr-4">
-                                <input id="Female"  type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
+                                <input id="Female" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
                                 <label htmlFor="Female" className="ml-2 text-sm font-medium text-black">Female</label>
                             </div>
                         </div>

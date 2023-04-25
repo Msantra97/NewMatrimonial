@@ -4,8 +4,8 @@ import Link from 'next/link'
 export default function Nav() {
   return (
 
-    <nav className="p-2 bg-[#873B70] shadow md:flex md:items-center md:justify-between">
-      <div className=" px-4 flex flex-wrap justify-between items-center">
+    <nav className="p-2 bg-[#2A2F4F] shadow md:flex md:items-center md:justify-between">
+      <div className=" px-4 flex flex-wrap justify-between items-center text-[#917FB3] hover:text-[#FDE2F3] ">
         <span className="text-2xl font-[cursive] cursor-pointer">
           <img className="h-10 inline" src="./img/logo/logo.png" alt="logo"></img>
           Just Married
@@ -18,25 +18,25 @@ export default function Nav() {
 
       <div className="w=full lg:inline-flex lg:w-auto mt-2 lg:mt-0 flex" id="navbar-default">
 
-        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 optacity-0 top-[-400px] transition-all ease-in duration-500"  aria-labelledby="navbar-default">
+        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 optacity-0 top-[-400px] transition-all ease-in duration-500 cursor-pointer"  aria-labelledby="navbar-default">
           <li className="mx-4 my-6 md:my-0">
-            <a herf="#" className="text-xl text-[#FFADBC] font-[sans] hover:text-cyan-500 duration-500">Home</a>
+            <a herf="#" className="text-xl text-[#917FB3] font-[sans] hover:text-[#E5BEEC] duration-500">Home</a>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a herf="#" className="text-xl text-[#FFADBC] font-[sans] hover:text-cyan-500 duration-500">Gallery</a>
+            <a herf="#" className="text-xl text-[#917FB3] font-[sans] hover:text-[#E5BEEC] duration-500">Gallery</a>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a herf="#" className="text-xl   font-[sans] hover:text-cyan-500 duration-500">Service</a>
+            <a herf="#" className="text-xl text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500">Service</a>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a herf="#" className="text-xl    font-[sans] hover:text-cyan-500 duration-500">About</a>
+            <a herf="#" className="text-xl  text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500">About</a>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a herf="#" className="text-xl    font-[sans] hover:text-cyan-500 duration-500">Contact</a>
+            <a herf="#" className="text-xl  text-[#917FB3]  font-[sans] hover:text-[#E5BEEC] duration-500">Contact</a>
           </li>
         </ul>
         <Link href="/signin">
-          <button className='w-[130px] h-[50px] bg-transparent border-[2px] border-solid border-black outline-none rounded-[8px] cursor-pointer text-[1.1em] text-black font[500] ml-[40px] ease-[0.5s] hover:bg-white hover:text-red-400 hover:border-red-400'>Login</button></Link>
+          <button className='w-[130px] h-[50px] bg-transparent border-[2px] border-solid border-[#917FB3] outline-none rounded-[8px] cursor-pointer text-[1.1em] text-[#917FB3] font[500] ml-[40px] ease-[0.5s] hover:bg-[#2A2F4F] hover:text-[#E5BEEC] hover:border-[#E5BEEC]'>Login</button></Link>
  
       </div>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
