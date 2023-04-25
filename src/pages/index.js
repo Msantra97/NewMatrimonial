@@ -10,27 +10,18 @@ import React from 'react'
 
 export default function Home() {
   return (
-<<<<<<< HEAD
-    <div>
-      <Nav/>
-=======
     <div className='w-screen'>
     <Nav/>
     <Carousel/>
->>>>>>> 27f82dde03376b342714fb86cb32218c47d6527f
       <Gallery/>
       <About/>
       {/* <Story/> */}
       <Service/>
       <Footer/>
-<<<<<<< HEAD
-      {/* <Profile/> */}
-=======
       {/* <Profile/>
        */}
 
        
->>>>>>> 27f82dde03376b342714fb86cb32218c47d6527f
     </div>
   )
 }
