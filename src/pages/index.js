@@ -11,13 +11,15 @@ import React from 'react'
 export default function Home() {
   return (
     <div>
-      <Nav/>
-      <Gallery/>
-      <About/>
-      {/* <Story/> */}
-      <Service/>
-      <Footer/>
-      {/* <Profile/> */}
+      {/* <Nav />
+      <Carousel />
+      <Gallery />
+      <About />
+
+      <Service />
+      <Footer /> */}
+      <Profile />
     </div>
+
   )
 }

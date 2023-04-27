@@ -1,4 +1,5 @@
 import { Black_And_White_Picture } from "next/font/google";
+import Link from "next/link";
 import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -24,10 +25,10 @@ export default function Footer() {
               Just<span className="text-[#FDE2F3] font-[cursive]">Married</span>
             </p>
             <div className="flex gap-6 pb-5">
-              <FaInstagram className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
-              <FaTwitter className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
-              <FaLinkedin className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
-              <FaYoutube className="text-2xl cursor-pointer hover:text-[#E5BEEC]" />
+              <FaInstagram className="text-2xl cursor-pointer hover:text-[#d62976]" />
+              <FaTwitter className="text-2xl cursor-pointer hover:text-[#00acee]" />
+              <FaLinkedin className="text-2xl cursor-pointer hover:text-[#0A66C2]" />
+              <FaYoutube className="text-2xl cursor-pointer hover:text-[#FF0000]" />
             </div>
           </ul>
         </div>
@@ -108,12 +109,14 @@ export default function Footer() {
       </div>
 
       <div className="bg-[#2A2F4F] flex flex-col justify-center items-center text-center p-5 ">
-        <h1 className="text-[#FDE2F3] font-mono font-semibold">
+        <h1 className="text-black font-mono font-semibold">
           @ 2023-2024 All right reserved | Build with{" "}
           <FaHeart className="inline" /> by {""}
+          <Link href="/">
           <span className="text-[#FDE2F3] hover:text-[#C85C8E] font-semibold font-[cursive] cursor-pointer">
             Just Married
           </span>
+          </Link>
           {""}
         </h1>
       </div>

@@ -8,7 +8,8 @@ export default function Home() {
     return (
         <div>
             <Nav />
-            <Register />
+            <Register/>
+            <Footer/>
         </div>
     )
 }

@@ -48,37 +48,45 @@ export default function Nav() {
           className="md:flex md:items-center z-[-1] md:z-auto md:static absolute  w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 optacity-0 top-[-400px] transition-all ease-in duration-500 cursor-pointer"
           aria-labelledby="navbar-default"
         >
-          <li className="mx-4 my-6 md:my-0">
-            <a
-              herf="#"
+          {/* <li className="mx-4 my-6 md:my-0">
+            <Link href="/">
+            <span
+              
               className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Home
-            </a>
-          </li>
+            </span>
+            </Link>
+          </li> */}
           <li className="mx-4 my-6 md:my-0">
-            <a
-              herf="#"
+            <Link href="#gallery">
+            <span
+          
               className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Gallery
-            </a>
+            </span>
+            </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a
-              herf="#"
+          <Link href="#service">
+            <span
+            
               className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Service
-            </a>
+            </span>
+            </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <a
+          <Link href="#about">
+            <span
               herf="#"
               className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               About
-            </a>
+            </span>
+            </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
             <a
