@@ -2,7 +2,30 @@ import Admin from "@/components/admin/Admin";
 import { Button, Table } from "react-bootstrap";
 import User from "../components/admin/User";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
+
 export default function admin() {
+  async function user() {
+    try {
+
+
+      const {data } = await axios.get(`${base}userData`)
+
+      if(data){
+        console.log(data)
+      }
+
+
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+
+  useEffect(()=>{
+    user()
+  },[])
+
   return (
     <div>
       <div className="flex h-screen">
@@ -41,54 +64,37 @@ export default function admin() {
             <h3 className="text-indigo-dark">USERS</h3>
             <small className="text-grey-dark font-bold">Current</small>
           </div>
-          <ul className="list-reset mb-8">
-          <div style={{ margin: "10rem" }}>
-                <Table striped bordered hover size="sm">
-                    <thead>
+          <ul className="list-reset mb-8  ">
+            {/* <div style={{ margin: "10rem" }}> */}
+            <Table striped bordered hover items-start size="sm">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {User && User.length > 0
+                  ? User.map((item) => {
+                      return (
                         <tr>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Email
-                            </th>
-                            <th>
-                                Actions
-                            </th>
+                          <td>{item.Name}</td>
+                          <td>{item.Email}</td>
+                          <td>
+                            <Button onClick={() => alert(item.userid)}>
+                              Edit
+                            </Button>
+                            &nbsp;
+                            {/* <Button onClick={() => handleDelete(item.userid)}>Delete</Button> */}
+                          </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            User && User.length > 0
-                                ?
-                                User.map((item) => {
-                                    return (
-                                        <tr>
-                                            <td>
-                                                {item.Name}
-                                            </td>
-                                            <td>
-                                                {item.Email}
-                                            </td>
-                                            <td>
-                                                <Button onClick={() => alert(item.userid)}>Edit</Button>
-                                                &nbsp;                                 
-                                                 {/* <Button onClick={() => handleDelete(item.userid)}>Delete</Button> */}
-
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                                :
-                                "No data available"
-                        }
-                    </tbody>
-                </Table>
-
-
-            </div>
-
-
+                      );
+                    })
+                  : "No data available"}
+              </tbody>
+            </Table>
+            {/* </div> */}
           </ul>
 
           <h3 className="text-indigo-dark mb-3">Meeting notes</h3>
