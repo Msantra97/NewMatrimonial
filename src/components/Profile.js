@@ -13,10 +13,10 @@ export default function Profile() {
     const [state, setState] = useState({
         picture: '',
         profilefor: '',
-        Birth:'',
+
         FirstName: '',
         LastName: '',
-        gender: '',
+    
         Address: '',
         Religion: '',
         Community: '',
@@ -29,12 +29,44 @@ export default function Profile() {
         Income: '',
         message: ''
     })
+    const inputHandle =(e) =>{
+        setState({
+            ...state,
+            [e.target.name] : [e.target.value]
+        })
+    }
 
     const Next = () => {
+        if (formNo === 1 && state.picture && state.profilefor){
         setformNo(formNo + 1)
+        }
+        else if(formNo === 2 && state.FirstName && state.LastName  && state.Address){
+            setformNo(formNo + 1)
+        } 
+        else if(formNo === 3 && state.Religion && state.Community && state.live){
+            setformNo(formNo + 1)
+        }
+        else if(formNo === 4 && state.Status && state.Qualification && state.Diet){
+            setformNo(formNo + 1)
+        }
+        else if(formNo === 5 && state.Height && state.Works && state.Income){
+            setformNo(formNo + 1)
+        }
+        else {
+            toast.error('Please Fillup All Input field')
+        }
     }
     const Perv = () => {
         setformNo(formNo - 1)
+    }
+    const finalSubmit = () => {
+        if( state.message){
+            toast.success('Form Submit Successfully') 
+           
+        }
+        else {
+            toast.error('Please Fillup All Input field')
+        }
     }
     const [selectedDate, setSelectedDate] = useState(null)
     return (
@@ -69,14 +101,14 @@ export default function Profile() {
                             <FaUserCircle className='block h-auto ml-4 w-[60px]' />
                             <label htmlFor='picture' className="block ">
                                 <span className="sr-only">Choose profile photo</span>
-                                <input type="file" name='picture' className="block w-full text-sm text-slate-500
+                                <input  value={state.picture}   onChange={inputHandle} type="file" name='picture' className="block w-full text-sm text-slate-500
                             file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-blue-500" id='picture' />
                             </label>
                         </div>
 
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
                             <label htmlFor='profilefor' className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Profile for</label>
-                            <select id="profilefor" name='profilefor' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.profilefor} onChange={inputHandle} id="profilefor" name='profilefor' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Self">Self</option>
                                 <option value="Son">Son</option>
@@ -89,8 +121,8 @@ export default function Profile() {
 
                         <div className='flex flex-col ml-[10px] mt-[20px]'>
                             <label htmlFor='Birth' className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Birth date</label>
-                            <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)}
-                                dateFormat='dd/MM/yyyy' isClearable showYearDropdown scrollableMonthYearDropdown id='Birth' name='Birth' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                            <DatePicker   selected={selectedDate}  onChange={date => setSelectedDate(date)} 
+                                dateFormat='dd/MM/yyyy' isClearable showYearDropdown scrollableMonthYearDropdown id='Birth' name='Birth'  className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
 
                         </div>
 
@@ -105,29 +137,29 @@ export default function Profile() {
 
                         <div className="relative flex flex-col mt-[10px] mr-2 ml-2 w-auto border-b-[1px] border-solid border-black">
 
-                            <input id="FirstName" name='FirstName' className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-0 border-b-1 appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
+                            <input  value={state.FirstName} onChange={inputHandle} id="FirstName" name='FirstName' className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-0 border-b-1 appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
                             <label htmlFor="FirstName" className="absolute text-md text-[#fff] duration-300 transform -translate-y-4 scale-75 top-4  z-10 origin-[0]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-100 peer-focus:-translate-y-5">First Name</label>
                         </div>
 
                         <div className="relative flex flex-col mt-[10px] mr-2 ml-2 w-auto border-b-[1px] border-solid border-black">
 
-                            <input id="LastName" name='LastName' className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-0 border-b-1 appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
+                            <input value={state.LastName} onChange={inputHandle} id="LastName" name='LastName' className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-0 border-b-1 appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
                             <label htmlFor="LastName" className="absolute text-md text-[#fff] duration-300 transform -translate-y-4 scale-75 top-4  z-10 origin-[0]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-100 peer-focus:-translate-y-5">Last Name</label>
                         </div>
 
                         <div className="flex mt-[10px]">
                             <div className="flex items-center ml-2  mr-4">
-                                <input id="Male" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
+                                <input  id="Male" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
                                 <label htmlFor="Male" className="ml-2 text-sm font-medium text-[#fff]">Male</label>
                             </div>
                             <div className="flex items-center ml-2  mr-4">
-                                <input id="Female" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
+                                <input  id="Female" type="radio" value="" name="gender" className="w-4 h-4 text-blue-600 border-black" />
                                 <label htmlFor="Female" className="ml-2 text-sm font-medium text-[#fff]">Female</label>
                             </div>
                         </div>
 
                         <div className='flex flex-col  mt-[15px] ml-2 mr-2'>
-                            <textarea row={10} name='Address' id="Address" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-2 border-black appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
+                            <textarea value={state.Address} onChange={inputHandle} row={10} name='Address' id="Address" className="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-md text-black bg-transparent border-2 border-black appearance-none   focus:outline-none focus:ring-0 peer" placeholder=" " type="text" required />
                             <label htmlFor="Address" className="absolute ml-1 text-md text-[#fff] duration-300 transform -translate-y-4 scale-75   z-10 origin-[0]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-100 peer-focus:-translate-y-5">Address</label>
                         </div>
 
@@ -145,7 +177,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Religion" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Religion</label>
-                            <select id="Religion" name='Religion' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Religion} onChange={inputHandle} id="Religion" name='Religion' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Hindu">Hindu</option>
                                 <option value="Muslim">Muslim</option>
@@ -158,7 +190,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Community" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Community</label>
-                            <select id="Community" name='Community' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Community} onChange={inputHandle} id="Community" name='Community' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Hindi">Hindi</option>
                                 <option value="Bengali">Bengali</option>
@@ -178,7 +210,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="live" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Where Do You Live?</label>
-                            <select id="live" name='live' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.live} onChange={inputHandle} id="live" name='live' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="India">India</option>
                                 <option value="Australia">Australia</option>
@@ -210,7 +242,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Status" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Marital Status</label>
-                            <select id="Status" name='Status' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Status} onChange={inputHandle} id="Status" name='Status' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Never Married">Never Married</option>
                                 <option value="Divorced">Divorced</option>
@@ -224,7 +256,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Qualification" className="block ml-2 mb-2 text-sm font-medium text-[#fff]"> Highest Qualification</label>
-                            <select id="Qualification" name='Qualification' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Qualification} onChange={inputHandle} id="Qualification" name='Qualification' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="B.E / B.Tech">B.E / B.Tech</option>
                                 <option value="M.E / M.Tech">M.E / M.Tech</option>
@@ -258,7 +290,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Diet" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">What Is Your Diet?</label>
-                            <select id="Diet" name='Diet' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Diet} onChange={inputHandle} id="Diet" name='Diet' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Veg">Veg</option>
                                 <option value="Non-Veg">Non-Veg</option>
@@ -271,7 +303,7 @@ export default function Profile() {
                         </div>
 
                         <div className='flex justify-center items-center gap-6 mt-[10px] ml-2 mr-2'>
-                            <button onClick={Perv} type="Perv" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white hover:bg-white hover:text-black">Perv</button>
+                            <button value={state.FirstName} onClick={Perv} type="Perv" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white hover:bg-white hover:text-black">Perv</button>
 
                             <button onClick={Next} type="Next" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white  hover:bg-white hover:text-black">Next</button>
                         </div>
@@ -287,7 +319,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Height" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Height</label>
-                            <select id="Height" name='Height' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Height} onChange={inputHandle} id="Height" name='Height' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="4ft 5in - 134cm">4ft 5in - 134cm</option>
                                 <option value="4ft 6in - 137cm">4ft 6in - 137cm</option>
@@ -328,7 +360,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Works" className="block ml-2 mb-2 text-sm font-medium text-[#fff]">Works With</label>
-                            <select id="Works" name='Works' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Works} onChange={inputHandle} id="Works" name='Works' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Private Company">Private Company</option>
                                 <option value="Government / Public Sector">Government / Public Sector</option>
@@ -342,7 +374,7 @@ export default function Profile() {
                         <div className='flex flex-col mt-[10px] ml-2 mr-2'>
 
                             <label for="Income" className="block ml-2 mb-2 text-sm font-medium text-[#fff]"> Annual Income</label>
-                            <select id="Income" name='Income' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select value={state.Income} onChange={inputHandle} id="Income" name='Income' className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Select</option>
                                 <option value="Upto INR 1 Lakh">Upto INR 1 Lakh</option>
                                 <option value="INR 1 Lakh to 2 Lakh">INR 1 Lakh to 2 Lakh</option>
@@ -375,15 +407,15 @@ export default function Profile() {
 
 
                         <div className=" flex flex-col mt-[10px] ml-2 mr-2">
-                            <label for="message" class="block mb-2 text-sm font-medium text-[#fff]">About yourself</label>
-                            <textarea id="message" name='message' rows="4" class="block p-2.5 w-full text-sm text-black bg-white rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="One last thing! Describe yourself in a few words...">
+                            <label for="message" className="block mb-2 text-sm font-medium text-[#fff]">About yourself</label>
+                            <textarea onChange={inputHandle} id="message" name='message' rows="4" className="block p-2.5 w-full text-sm text-black bg-white rounded-lg border border-black focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="One last thing! Describe yourself in a few words...">
                             </textarea>
                         </div>
 
                         <div className='flex justify-center items-center gap-6 mt-[10px] ml-2 mr-2'>
                             <button onClick={Perv} type="Perv" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white hover:bg-white hover:text-black">Perv</button>
 
-                            <button type="submit" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white  hover:bg-white hover:text-black">Submit</button>
+                            <button onClick={finalSubmit} type="submit" className="w-full h-[45px] mt-[20px] rounded-[40px] bg-black border-none outline-none cursor-pointer text-[16px] font-[500] text-white  hover:bg-white hover:text-black">Submit</button>
                         </div>
 
                     </div>

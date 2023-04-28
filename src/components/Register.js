@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useHistory } from "react-router-dom"
+
 import { BASE } from "../../constant";
 import axios from "axios";
 export default function Register() {
