@@ -18,15 +18,15 @@ import React from 'react'
 export default function index() {
   return (
     <div>
-      <Nav />
+      {/* <Nav />
       <Carousel />
       <Gallery />
       <About />
 
       <Service />
-      <Footer />
+      <Footer /> */}
       {/* <Profile /> */}
-     {/* <Main/>  */}
+     <Main/> 
      
     </div>
 

@@ -13,7 +13,7 @@ export default function Nav() {
               // src="./img/logo/logo.png"
               alt="logo"
             ></img> */}
-            Just Married
+            Just Marry
           </span>
         </Link>
         <button

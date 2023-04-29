@@ -22,7 +22,7 @@ export default function Footer() {
               className="text-gray-8000 font-bold text-3xl font-[cursive]
                 pb-6"
             >
-              Just<span className="text-[#FDE2F3] font-[cursive]">Married</span>
+              Just<span className="text-[#FDE2F3] font-[cursive]">Marry</span>
             </p>
             <div className="flex gap-6 pb-5">
               <FaInstagram className="text-2xl cursor-pointer hover:text-[#d62976]" />
@@ -122,7 +122,7 @@ export default function Footer() {
           <FaHeart className="inline" /> by {""}
           <Link href="/">
           <span className="text-[#FDE2F3] hover:text-[#C85C8E] font-semibold font-[cursive] cursor-pointer">
-            Just Married
+            Just Marry
           </span>
           </Link>
           {""}
