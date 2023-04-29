@@ -1,27 +1,42 @@
 
-import { Button, Table } from "react-bootstrap";
 // import User from "../components/admin/User";
 
-import axios from "axios";rr
+import axios from "axios";
 import { BASE } from "../../constant";
 import { useEffect , useState } from "react";
 
 export default function admin() {
   const [userData, setUserData] = useState();
-  console.log("data",userData)
+  // console.log("data",userData)
   async function user() {
     try {
       const { data } = await axios.get(`${BASE}dashboard/fetchData`);
 
       if (data) {
-        console.log(data);
-        setUserData(data)
+        // console.log(data);
+        setUserData(data.result)
       }
     } catch (error) {
       console.log("Error", error);
     }
   }
+  async function deleteUser(userid) {
+    console.log(userid);
+    try {
+      const { data } = await axios.post(`${BASE}dashboard/delete`, {user_id: userid});
 
+      if (data) {
+        console.log(data);
+        // setUserData(data.result)
+
+      }
+      alart("user deleted")
+     location.reload();
+    } catch (error) {
+      console.log("Error", error);
+    }
+  }
+  console.log(userData);
   useEffect(() => {
     user();
   }, []);
@@ -83,42 +98,21 @@ export default function admin() {
             </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Monoj Santra
-                </th>
-                <td className="px-6 py-4">
-                monojsantra@gmail.com
-                </td>
-                <td className="px-6 py-4">
-                <button  className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
-                </td>
-               
-            </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Monoj Mondal
-                </th>
-                <td className="px-6 py-4">
-                monojmondal@gmail.com
-                </td>
-                <td className="px-6 py-4">
-                <button  className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
-                </td>
-               
-            </tr>
-            <tr className="bg-white dark:bg-gray-800">
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                Monoj Roy
-                </th>
-                <td className="px-6 py-4">
-                monojroy@gmail.com
-                </td>
-                <td className="px-6 py-4">
-                <button  className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
-                </td>
-               
-            </tr>
+            {userData ? userData.map((e)=>(
+              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {e.name}
+              </th>
+              <td className="px-6 py-4">
+              {e.email}
+              </td>
+              <td className="px-6 py-4">
+              <button  className="font-medium text-red-600 dark:text-red-500 hover:underline" onClick={()=>deleteUser(e.user_id)}>Delete</button>
+              </td>
+             
+          </tr>
+            )) : null}
+      
         </tbody>
     </table>
 </div>
