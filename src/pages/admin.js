@@ -30,7 +30,7 @@ export default function admin() {
         // setUserData(data.result)
 
       }
-      alart("user deleted")
+      alert("user deleted")
      location.reload();
     } catch (error) {
       console.log("Error", error);
