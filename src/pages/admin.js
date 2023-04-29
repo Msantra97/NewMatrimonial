@@ -3,28 +3,28 @@ import { Button, Table } from "react-bootstrap";
 import User from "../components/admin/User";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import { BASE } from "../../constant";
+import { useEffect , useState } from "react";
 
 export default function admin() {
+  const [userData, setUserData] = useState();
+  console.log("data",userData)
   async function user() {
     try {
+      const { data } = await axios.get(`${BASE}dashboard/fetchData`);
 
-
-      const {data } = await axios.get(`${base}userData`)
-
-      if(data){
-        console.log(data)
+      if (data) {
+        console.log(data);
+        setUserData(data)
       }
-
-
     } catch (error) {
       console.log("Error", error);
     }
   }
 
-  useEffect(()=>{
-    user()
-  },[])
+  useEffect(() => {
+    user();
+  }, []);
 
   return (
     <div>
@@ -64,38 +64,21 @@ export default function admin() {
             <h3 className="text-indigo-dark">USERS</h3>
             <small className="text-grey-dark font-bold">Current</small>
           </div>
-          <ul className="list-reset mb-8  ">
-            {/* <div style={{ margin: "10rem" }}> */}
+          {/* <ul className="list-reset mb-8  "> */}
+            <div style={{ margin: "10rem" }}>
             <Table striped bordered hover items-start size="sm">
-              <thead>
+          <thead>
                 <tr>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Actions</th>
                 </tr>
-              </thead>
+              </thead> 
               <tbody>
-                {User && User.length > 0
-                  ? User.map((item) => {
-                      return (
-                        <tr>
-                          <td>{item.Name}</td>
-                          <td>{item.Email}</td>
-                          <td>
-                            <Button onClick={() => alert(item.userid)}>
-                              Edit
-                            </Button>
-                            &nbsp;
-                            {/* <Button onClick={() => handleDelete(item.userid)}>Delete</Button> */}
-                          </td>
-                        </tr>
-                      );
-                    })
-                  : "No data available"}
               </tbody>
             </Table>
-            {/* </div> */}
-          </ul>
+            </div>
+          {/* </ul> */}
 
           <h3 className="text-indigo-dark mb-3">Meeting notes</h3>
           <ul className="bg-indigo-lightest text-indigo-dark p-4 pl-12 rounded">
