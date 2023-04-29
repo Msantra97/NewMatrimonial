@@ -1,9 +1,8 @@
-import React , {useState}from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
-
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { BASE } from "../../constant";
 export default function Login() {
@@ -16,16 +15,22 @@ export default function Login() {
         email: email,
         password: password,
       });
-      console.log("Data",data)
-      if (data) {
+      console.log("Data", data);
+      if (data.status == "admin") {
         // window.location("/");
-        alert("Success Login! " , data.message )
+        alert("Success Admin Login! ", data.message);
+
+        window.location.href = "./admin"
         // toast.success("Success Login !",data.message)
-      }
+      } else if (data.status == "user") {
 
-      else {
-        toast.error("Invalid Credentials !")
+      
+        alert("Success User Login! ");
 
+        window.location.href = "./main"
+
+      } else {
+        toast.error("Invalid Credentials !");
       }
     } catch (error) {
       console.log("error", error);
