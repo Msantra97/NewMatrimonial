@@ -94,11 +94,11 @@ export default function Main() {
           <ProfileCard />
           <ProfileCard />
         </div>
-        <div className="flex flex-auto gap-10">
+        {/* <div className="flex flex-auto gap-10">
           <ProfileCard />
           <ProfileCard />
           <ProfileCard />
-        </div>
+        </div> */}
       </div>
     </>
   );
