@@ -49,18 +49,26 @@ export default function Footer() {
         <div className="p-5">
           <ul>
             <p className="text-[#FDE2F3] font-bold text-2xl pb-4">Company</p>
+            <Link href="/">
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Home
             </li>
+            </Link>
+            <Link href="#gallery">
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Gallery
             </li>
+            </Link>
+            <Link href="#service">
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Service
             </li>
+            </Link>
+            <Link href="#about">
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               About
             </li>
+            </Link>
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Contact
             </li>
