@@ -69,6 +69,11 @@ export default function Footer() {
               About
             </li>
             </Link>
+            <Link href="#story">
+            <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
+              Story
+            </li>
+            </Link>
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Contact
             </li>

@@ -81,10 +81,20 @@ export default function Nav() {
           <li className="mx-4 my-6 md:my-0">
           <Link href="#about">
             <span
-              herf="#"
+      
               className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               About
+            </span>
+            </Link>
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+          <Link href="#story">
+            <span
+      
+              className="text-xl text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
+            >
+              Story
             </span>
             </Link>
           </li>

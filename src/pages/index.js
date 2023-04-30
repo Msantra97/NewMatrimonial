@@ -24,8 +24,9 @@ export default function index() {
       <About />
 
       <Service />
+      <Story/>
       <Footer />
-      {/* <Profile /> */}
+
   
      
     </div>

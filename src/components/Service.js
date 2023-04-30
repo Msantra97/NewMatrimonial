@@ -4,7 +4,7 @@ export default function Service() {
   return (
     <div className=" relative w-full justify-center bg-cover bg-no-repeat mt-2 mb-2 px-4 py-4 grid md:grid-cols-2 gap-4" id='service'>
 
-      <img className='w-full h-auto mt-[70px] rounded-3xl' src="./img/service/sre2.jpg" alt="no-image" />
+      <img className='w-full h-[720px] mt-[70px] rounded-3xl' src="./img/service/sre2.jpg" alt="no-image" />
 
       <div className=' mt-22 mb-22'>
         <h2 className='text-4xl mt-16 ml-16 font-[cursive]'>Our Services</h2>
