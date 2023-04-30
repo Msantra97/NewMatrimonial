@@ -38,7 +38,7 @@ export default function Register() {
 
   return (
     <div className="flex justify-center items-center min-h-screen w-full  bg-[#917FB3] bg-cover bg-no-repeat bg-center">
-      <div className=" flex relative  w-[360px] h-[600px] bg-transparent  border-[2px] border-spacing-[2px] border-solid border-black rounded-e-[20px] rounded-s-[20px]  ring-offset-30 justify-center items-center">
+      <div className=" flex relative  w-[400px] h-[600px] bg-transparent  border-[2px] border-spacing-[2px] border-solid border-black rounded-e-[20px] rounded-s-[20px]  ring-offset-30 justify-center items-center">
         <form action="#" method="get" id="form1">
           <h2 className="relative text-[2em] decoration-white text-white text-center">
             Registation

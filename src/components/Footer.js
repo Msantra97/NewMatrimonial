@@ -74,9 +74,11 @@ export default function Footer() {
               Story
             </li>
             </Link>
+            <Link href="/contact">
             <li className="text-[#FDE2F3] text-md pb-2 font-semibold hover:text-[#C85C8E] cursor-pointer">
               Contact
             </li>
+            </Link>
           </ul>
         </div>
 

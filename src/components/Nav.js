@@ -98,14 +98,16 @@ export default function Nav() {
             </span>
             </Link>
           </li>
+          <Link href="/contact">
           <li className="mx-4 my-6 md:my-0">
-            <a
+            <span
               herf="#"
               className="text-xl  text-[#E5BEEC] font-[sans] hover:text-[#fff] duration-500"
             >
               Contact
-            </a>
+            </span>
           </li>
+          </Link>
         </ul>
         <Link href="/signin">
           <button className="w-[130px] h-[50px] bg-transparent border-[2px] border-solid border-[#E5BEEC] outline-none rounded-[8px] cursor-pointer text-[1.1em] text-[#E5BEEC]  font[500] ml-[40px] ease-[0.5s] hover:bg-[#2A2F4F] hover:text-[#fff] hover:border-[#fff]">
